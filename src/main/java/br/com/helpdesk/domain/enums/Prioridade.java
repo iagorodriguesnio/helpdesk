@@ -1,32 +1,32 @@
 package br.com.helpdesk.domain.enums;
 
-public enum Perfil {
+public enum Prioridade {
 
-    ADMIN(0, "Role_Admin"), CLIENTE(1,"Role_Cliente"), TECNICO(2, "Role_Tecnico");
+    BAIXA(0, "Baixa"), MEDIA(1,"Média"), ALTA(2, "Alta");
 
-    private final Integer codPerfil;
+    private final Integer codPrioridade;
     private final String descricao;
 
-    Perfil(Integer codPerfil, String descricao) {
-        this.codPerfil = codPerfil;
+    Prioridade(Integer codPrioridade, String descricao) {
+        this.codPrioridade = codPrioridade;
         this.descricao = descricao;
     }
 
-    public Perfil toEnum(Integer codPerfil) {
-        if (codPerfil == null){
+    public Prioridade toEnum(Integer codPrioridade) {
+        if (codPrioridade == null){
             return null;
         }
 
-        for (Perfil perfil : Perfil.values()){
-            if (codPerfil.equals(getCodPerfil())){
-                return perfil;
+        for (Prioridade prioridade : Prioridade.values()){
+            if (codPrioridade.equals(getCodPrioridade())){
+                return prioridade;
             }
         }
 
-        throw new IllegalArgumentException("Código de Perfil Inválido.");
+        throw new IllegalArgumentException("Código de Prioridade Inválido.");
     }
-    public Integer getCodPerfil() {
-        return codPerfil;
+    public Integer getCodPrioridade() {
+        return codPrioridade;
     }
 
     public String getDescricao() {

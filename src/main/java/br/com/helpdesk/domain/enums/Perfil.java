@@ -1,32 +1,32 @@
 package br.com.helpdesk.domain.enums;
 
-public enum Status {
+public enum Perfil {
 
-    ABERTO(1, "Aberto"), ANDAMENTO(2,"Andamento"), ENCERRADO(3, "Encerrado");
+    ADMIN(0, "Role_Admin"), CLIENTE(1,"Role_Cliente"), TECNICO(2, "Role_Tecnico");
 
-    private final Integer codStatus;
+    private final Integer codPerfil;
     private final String descricao;
 
-    Status(Integer codStatus, String descricao) {
-        this.codStatus = codStatus;
+    Perfil(Integer codPerfil, String descricao) {
+        this.codPerfil = codPerfil;
         this.descricao = descricao;
     }
 
-    public Status toEnum(Integer codStatus) {
-        if (codStatus == null){
+    public static Perfil toEnum(Integer codPerfil) {
+        if (codPerfil == null){
             return null;
         }
 
-        for (Status status : Status.values()){
-            if (codStatus.equals(getCodStatus())){
-                return status;
+        for (Perfil perfil : Perfil.values()){
+            if (codPerfil.equals(perfil.getCodPerfil())){
+                return perfil;
             }
         }
 
-        throw new IllegalArgumentException("Código de Status Inválido.");
+        throw new IllegalArgumentException("Código de Perfil Inválido.");
     }
-    public Integer getCodStatus() {
-        return codStatus;
+    public Integer getCodPerfil() {
+        return codPerfil;
     }
 
     public String getDescricao() {

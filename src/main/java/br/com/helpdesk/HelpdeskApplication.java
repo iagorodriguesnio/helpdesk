@@ -1,5 +1,6 @@
 package br.com.helpdesk;
 
+import br.com.helpdesk.domain.entity.Chamado;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
