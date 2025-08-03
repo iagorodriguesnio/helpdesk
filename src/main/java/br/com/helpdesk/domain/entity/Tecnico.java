@@ -1,16 +1,25 @@
 package br.com.helpdesk.domain.entity;
 
-import lombok.NonNull;
-
+import br.com.helpdesk.domain.enums.Perfil;
+import jakarta.persistence.Entity;
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Tecnico extends Pessoa {
 
     private List<Chamado> chamados = new ArrayList<>();
-    public Tecnico(@NonNull Integer Id, @NonNull String nome, @NonNull String cpf, @NonNull String email, @NonNull String senha) {
-        super(Id, nome, cpf, email, senha);
+
+    public Tecnico() {
+        super();
     }
+    public Tecnico(Integer Id, String nome, String cpf, String email, String senha) {
+        super(Id, nome, cpf, email, senha);
+        addPerfil(Perfil.TECNICO);
+    }
+
+
+
 
     public List<Chamado> getChamados() {
         return chamados;

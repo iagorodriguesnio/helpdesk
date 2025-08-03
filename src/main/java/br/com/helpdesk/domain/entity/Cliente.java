@@ -1,14 +1,22 @@
 package br.com.helpdesk.domain.entity;
 
-import lombok.NonNull;
+import jakarta.persistence.Entity;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Entity
 public class Cliente extends Pessoa{
 
+    @OneToMany(mappedBy = "tecnico")
     private List<Chamado> chamados = new ArrayList<>();
-    public Cliente(@NonNull Integer Id, @NonNull String nome, @NonNull String cpf, @NonNull String email, @NonNull String senha) {
+
+    public Cliente() {
+       super();
+    }
+    public Cliente(Integer Id, String nome, String cpf, String email, String senha) {
         super(Id, nome, cpf, email, senha);
     }
 
