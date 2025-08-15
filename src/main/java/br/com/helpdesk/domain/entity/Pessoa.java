@@ -12,8 +12,7 @@ import java.util.Objects;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-@Entity
-@Table(name = "tb_pessoas")
+@Entity(name = "tb_pessoas")
 public abstract  class Pessoa implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -39,6 +38,7 @@ public abstract  class Pessoa implements Serializable {
 
     public Pessoa() {
         super();
+        addPerfil(Perfil.CLIENTE);
     }
 
     public Pessoa(Integer id, String cpf, String nome, String email, String senha) {
@@ -47,6 +47,7 @@ public abstract  class Pessoa implements Serializable {
         this.nome = nome;
         this.email = email;
         this.senha = senha;
+        addPerfil(Perfil.CLIENTE);
     }
 
     public Set<Perfil> getPerfis() {

@@ -11,8 +11,7 @@ import java.time.LocalDateTime;
 import java.util.Objects;
 
 
-@Entity
-@Table(name = "tb_chamados")
+@Entity(name = "tb_chamados")
 public class Chamado implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
@@ -41,6 +40,16 @@ public class Chamado implements Serializable {
     @JoinColumn(name = "tecnico_id")
     private Tecnico tecnico;
 
+
+    public Chamado(Integer id, Prioridade prioridade, Status status, String titulo, String observacao, Cliente cliente, Tecnico tecnico) {
+        Id = id;
+        this.prioridade = prioridade;
+        this.status = status;
+        this.titulo = titulo;
+        this.observacao = observacao;
+        this.cliente = cliente;
+        this.tecnico = tecnico;
+    }
 
     public Integer getId() {
         return Id;
